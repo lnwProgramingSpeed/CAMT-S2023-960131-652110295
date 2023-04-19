@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<style>
+    /* style the table header */
+    th {
+        background-color: #ccc;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* style the table cells */
+    td {
+        padding: 5px;
+        text-align: center;
+    }
+
+    /* style the even rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* style the table itself */
+    table {
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    /* style the table border */
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Strong Against</th>
+                <th>Weak Against</th>
+                <th>Resistant To</th>
+                <th>Vulnerable To</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+            <tr>
+                <td>Normal</td>
+                <td></td>
+                <td>Rock, Ghost, Steel</td>
+                <td>Ghost</td>
+                <td>Fighting</td>
+            </tr>
+            <tr>
+                <td>Fighting</td>
+                <td>Normal, Rock, Steel, Ice, Dark</td>
+                <td>Flying, Poison, Psychic, Bug, Ghost, Fairy</td>
+                <td>Rock, Bug, Dark</td>
+                <td>Flying, Psychic, Fairy</td>
+            </tr>
+            <tr>
+                <td>Flying</td>
+                <td>Fighting, Bug, Grass</td>
+                <td>Rock, Steel, Electric</td>
+                <td>Fighting, Ground, Bug, Grass</td>
+                <td>Rock, Electric, Ice</td>
+            </tr>
+            <tr>
+                <td>Poison</td>
+                <td>Grass, Fairy</td>
+                <td>Poison, Ground, Rock, Ghost, Steel</td>
+                <td>Fighting, Poison, Grass, Fairy</td>
+                <td>Ground, Psychic</td>
+            </tr>
+            <tr>
+                <td>Ground</td>
+                <td>Poison, Rock, Steel, Fire, Electric</td>
+                <td>Flying, Bug, Grass</td>
+                <td>Poison, Rock, Electric</td>
+                <td>Water, Grass, Ice</td>
+            </tr>
+            <tr>
+                <td>Rock</td>
+                <td>Flying, Bug, Fire, Ice</td>
+                <td>Fighting, Ground, Steel</td>
+                <td>Normal, Flying, Poison, Fire</td>
+                <td>Fighting, Ground, Steel, Water, Grass</td>
+            </tr>
+            <tr>
+                <td>Bug</td>
+                <td>Grass, Psychic, Dark</td>
+                <td>Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy</td>
+                <td>Fighting, Ground, Grass</td>
+                <td>Flying, Rock, Fire</td>
+            </tr>
+            <tr>
+                <td>Ghost</td>
+                <td>Ghost, Psychic</td>
+                <td>Normal, Dark</td>
+                <td>Normal, Fighting, Poison, Bug</td>
+                <td>Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Steel</td>
+                <td>Rock, Ice, Fairy</td>
+                <td>Steel, Fire, Water, Electric</td>
+                <td>Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy</td>
+                <td>Fighting, Ground, Fire</td>
+            </tr>
+            <tr>
+                <td>Fire</td>
+                <td>Bug, Steel, Grass, Ice</td>
+                <td>Rock, Fire, Water, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>Ground,Rock,Fire</td>
+                <td>Water,Grass, Dragon</td>
+                <td>Bug, Steel, Fire, Grass, Ice</td>
+                <td>Ground, Rock, Water</td>
+            </tr>
+            <tr>
+                <td>Grass</td>
+                <td>Ground, Rock, Water</td>
+                <td>Flying, Poison, Bug, Steel, Fire, Grass, Dragon</td>
+                <td>Ground, Water, Grass, Electric</td>
+                <td>Flying, Poison, Bug, Fire, Ice</td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>Flying, Water</td>
+                <td>Ground, Grass, Electric, Dragon</td>
+                <td>Flying, Steel, Electric</td>
+                <td>Ground</td>
+            </tr>
+            <tr>
+                <td>Psychic</td>
+                <td>Fighting, Poison</td>
+                <td>Steel, Psychic, Dark</td>
+                <td>Fighting, Psychic</td>
+                <td>Bug, Ghost, Dark</td>
+            </tr>
+            <tr>
+                <td>Ice</td>
+                <td>Flying, Ground, Grass, Dragon</td>
+                <td>Steel, Fire, Water, Ice</td>
+                <td>Ice</td>
+                <td>Fighting, Rock, Steel, Fire</td>
+            </tr>
+            <tr>
+                <td>Dragon</td>
+                <td>Dragon</td>
+                <td>Steel, Fairy</td>
+                <td>Fire, Water, Grass, Electric</td>
+                <td>Ice, Dragon, Fairy</td>
+            </tr>
+            <tr>
+                <td>Fairy</td>
+                <td>Fighting, Dragon, Dark</td>
+                <td>Poison, Steel, Fire</td>
+                <td>Fighting, Bug, Dragon, Dark</td>
+                <td>Poison, Steel</td>
+            </tr>
+            <tr>
+                <td>Dark</td>
+                <td>Ghost, Psychic</td>
+                <td>Fighting, Dark, Fairy</td>
+                <td>Ghost, Psychic, Dark</td>
+                <td>Fighting, Bug, Fairy</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
