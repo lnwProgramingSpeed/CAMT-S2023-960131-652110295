@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatever this is</title>
+    <div class="all" style="
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            background-color: rgba(128, 128, 128, 0.393);
+            width: 100%;
+            height: 100%;">
+    </div>
+    <style>
+        .Box-model {
+            border-style: dotted;
+            background-color: gray;
+            padding: 20px;
+            width: 650px;
+        }
+
+        .margin {
+            background-color: antiquewhite;
+            padding: 5%;
+        }
+
+        .boder {
+            background-color: aquamarine;
+            padding: 5%;
+        }
+
+        .padding {
+            background-color: royalblue;
+            padding: 5%;
+        }
+
+        .text {
+            text-align: center;
+            padding: 5%;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .rainbow-bg {
+            animation: rainbow-bg 1.5s linear;
+            animation-iteration-count: infinite;
+        }
+
+        .rainbow {
+            animation: rainbow 5s linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rainbow-bg {
+
+            100%,
+            0% {
+                background-color: rgb(255, 0, 0);
+            }
+
+            8% {
+                background-color: rgb(255, 127, 0);
+            }
+
+            16% {
+                background-color: rgb(255, 255, 0);
+            }
+
+            25% {
+                background-color: rgb(127, 255, 0);
+            }
+
+            33% {
+                background-color: rgb(0, 255, 0);
+            }
+
+            41% {
+                background-color: rgb(0, 255, 127);
+            }
+
+            50% {
+                background-color: rgb(0, 255, 255);
+            }
+
+            58% {
+                background-color: rgb(0, 127, 255);
+            }
+
+            66% {
+                background-color: rgb(0, 0, 255);
+            }
+
+            75% {
+                background-color: rgb(127, 0, 255);
+            }
+
+            83% {
+                background-color: rgb(255, 0, 255);
+            }
+
+            91% {
+                background-color: rgb(255, 0, 127);
+            }
+        }
+
+        @keyframes rainbow {
+
+            100%,
+            0% {
+                color: rgb(255, 0, 0);
+            }
+
+            8% {
+                color: rgb(255, 127, 0);
+            }
+
+            16% {
+                color: rgb(255, 255, 0);
+            }
+
+            25% {
+                color: rgb(127, 255, 0);
+            }
+
+            33% {
+                color: rgb(0, 255, 0);
+            }
+
+            41% {
+                color: rgb(0, 255, 127);
+            }
+
+            50% {
+                color: rgb(0, 255, 255);
+            }
+
+            58% {
+                color: rgb(0, 127, 255);
+            }
+
+            66% {
+                color: rgb(0, 0, 255);
+            }
+
+            75% {
+                color: rgb(127, 0, 255);
+            }
+
+            83% {
+                color: rgb(255, 0, 255);
+            }
+
+            91% {
+                color: rgb(255, 0, 127);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Box Model</h1>
+    <div class="Box-model">
+        <div class="margin">
+            <div class="boder">
+                <div class="padding">
+                    <div class="text">
+                        <p>Simple Box</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>CSS Display</h1>
+
+    <h2>inline</h2>
+    <div class="Box-model">
+        <div class="inline" style="background-color: antiquewhite;">
+            inline text 1
+        </div>
+        <div class="inline" style="background-color: aquamarine;">
+            inline text 2
+        </div>
+        <div class="inline" style="background-color: royalblue;">
+            inline text 3
+        </div>
+        <div class="inline" style="background-color: firebrick;">
+            inline text 4
+        </div>
+        <div class="inline" style="background-color: aliceblue;">
+            inline text 5
+        </div>
+    </div>
+
+    <h2>block</h2>
+    <div class="Box-model">
+
+        <div class="text" style="background-color: antiquewhite;">
+            block text1
+        </div>
+        <div class="text" style="background-color: aquamarine;">
+            block text2
+        </div>
+        <div class="text" style="background-color: royalblue">
+            block text3
+        </div>
+        <div class="text" style="background-color: firebrick">
+            block text4
+        </div>
+        <div class="text" style="background-color: aliceblue">
+            block text5
+        </div>
+    </div>
+
+    <h2>inlinr block</h2>
+    <div class="Box-model">
+        <div class="inline" style="background-color: antiquewhite;">
+            cat
+        </div>
+        <div class="inline" style="background-color: aquamarine;">
+            dog
+        </div>
+        <div class="inline" style="background-color: royalblue;">
+            eat
+        </div>
+        <div class="inline" style="background-color: firebrick;">
+            bat
+        </div>
+        <div class="inline" style="background-color: aliceblue;">
+            rat
+        </div>
+    </div>
+
+    <h2>none</h2>
+    <div class="Box-model">
+        <div class="inline" style="background-color: antiquewhite;">
+            cat
+        </div>
+        <div class="inline" style="background-color: aquamarine;">
+            dog
+        </div>
+        <div class="inline" style="background-color: royalblue;">
+            eat
+        </div>
+        <div class="inline" style="background-color: firebrick; display: none;">
+            bat
+        </div>
+        <div class="inline" style="background-color: aliceblue;">
+            rat
+        </div>
+    </div>
+
+    <h2>display:none vs visible:hidden</h2>
+    <div class="Box-model">
+        <div class="inline" style="background-color: antiquewhite;">
+            cat
+        </div>
+        <div class="inline" style="background-color: aquamarine; visibility: hidden;">
+            dog
+        </div>
+        <div class="inline" style="background-color: royalblue;">
+            eat
+        </div>
+        <div class="inline" style="background-color: firebrick; display: none;">
+            bat
+        </div>
+        <div class="inline" style="background-color: aliceblue;">
+            rat
+        </div>
+    </div>
+
+    <h2>CSS Position</h2>
+
+    <h2>Static</h2>
+    <div class="Box-model">
+        <div class="rainbow-bg" style="position: static;
+            width: 100px;
+            height: 100px;"></div>
+    </div>
+
+    <h2>absolute</h2>
+    <h2>fixed width/height</h2>
+    <div class="Box-model">
+        <div class="rainbow-bg" style="position: absolute;
+            width: 100px;
+            height: 100px;"></div>
+    </div>
+
+    <h2>no width/height</h2>
+    <div class="Box-model">
+        <div class="rainbow-bg" style="position: static;
+            border: 3px solid black"></div>
+    </div>
+
+    <h2>fixed width/height + right/top</h2>
+    <div class="Box-model" style="
+            height: 150px;
+            width: 400px;">
+        <div class="rainbow-bg" style="
+                position: absolute;
+                width: 20%;
+                height: 20%;
+                background-color: aliceblue;">
+        </div>
+    </div>
+
+    <div class="help ">
+        <div class="text rainbow-bg" style="
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 300px ;
+                text-align: center;
+                background-color: gray;
+                color: aquamarine;">
+            <h1 class="rainbow">What kind of hell torture is this</h1>
+        </div>
+    </div>
+</body>
+
+</html>
