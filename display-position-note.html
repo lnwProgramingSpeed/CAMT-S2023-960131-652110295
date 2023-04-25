@@ -56,14 +56,14 @@
             animation-iteration-count: infinite;
         }
 
-        .heaven{
+        .heaven {
             height: 150px;
             width: 400px;
             background-color: antiquewhite;
             position: relative;
         }
 
-        .heaven .close{
+        .heaven .close {
             width: 40px;
             height: 40px;
             background-color: #000000;
@@ -72,7 +72,15 @@
             position: absolute;
             top: -30px;
             right: -20px;
+
         }
+
+        .close h2 {
+            text-align: center;
+            margin: 0;
+            padding-top: 5px;
+        }
+
 
         @keyframes rainbow-bg {
 
@@ -320,7 +328,9 @@
             height: 150px;
             width: 400px;">
         <div class="heaven rainbow-bg">
-            <h2 class="close rainbow">X</h2>
+            <div class="close rainbow">
+                <h2>X</h2>
+            </div>
         </div>
     </div>
 
