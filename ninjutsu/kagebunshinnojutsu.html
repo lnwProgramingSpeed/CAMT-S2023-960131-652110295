@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Playground</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        @keyframes rainbow-bg {
+
+            100%,
+            0% {
+                background-color: rgb(255, 0, 0);
+            }
+
+            8% {
+                background-color: rgb(255, 127, 0);
+            }
+
+            16% {
+                background-color: rgb(255, 255, 0);
+            }
+
+            25% {
+                background-color: rgb(127, 255, 0);
+            }
+
+            33% {
+                background-color: rgb(0, 255, 0);
+            }
+
+            41% {
+                background-color: rgb(0, 255, 127);
+            }
+
+            50% {
+                background-color: rgb(0, 255, 255);
+            }
+
+            58% {
+                background-color: rgb(0, 127, 255);
+            }
+
+            66% {
+                background-color: rgb(0, 0, 255);
+            }
+
+            75% {
+                background-color: rgb(127, 0, 255);
+            }
+
+            83% {
+                background-color: rgb(255, 0, 255);
+            }
+
+            91% {
+                background-color: rgb(255, 0, 127);
+            }
+        }
+
+        @keyframes rainbow {
+
+            100%,
+            0% {
+                color: rgb(255, 0, 0);
+            }
+
+            8% {
+                color: rgb(255, 127, 0);
+            }
+
+            16% {
+                color: rgb(255, 255, 0);
+            }
+
+            25% {
+                color: rgb(127, 255, 0);
+            }
+
+            33% {
+                color: rgb(0, 255, 0);
+            }
+
+            41% {
+                color: rgb(0, 255, 127);
+            }
+
+            50% {
+                color: rgb(0, 255, 255);
+            }
+
+            58% {
+                color: rgb(0, 127, 255);
+            }
+
+            66% {
+                color: rgb(0, 0, 255);
+            }
+
+            75% {
+                color: rgb(127, 0, 255);
+            }
+
+            83% {
+                color: rgb(255, 0, 255);
+            }
+
+            91% {
+                color: rgb(255, 0, 127);
+            }
+        }
+
+        .rainbow-bg {
+            animation: rainbow-bg 1.5s linear;
+            animation-iteration-count: infinite;
+        }
+
+        .rainbow {
+            animation: rainbow 5s linear;
+            animation-iteration-count: infinite;
+        }
+
+        .playground {
+            padding: 0;
+            margin: 0;
+            border: 1px solid #666;
+            width: 100%;
+            background-color: #EEEEEE;
+            min-height: 300px;
+            position: relative;
+        }
+
+        .playground>body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Layout with Flexbox</h1>
+    <p>create css classes for building layout/UI</p>
+    <p style="font-weight: bold;">DO NOT CHANGE A HTML STRUCTURE</p>
+
+    <h2>Vertical Menu</h2>
+    <h3>example</h3>
+    <img src="vertical-menu.png">
+    <br>
+    <h3>playground</h3>
+    <div class="playground">
+        <style>
+            .menu-container {
+                width: 100px;
+                text-align: center;
+                border: 1px solid black;
+            }
+
+            .menu-item:hover {
+                box-shadow: 5px 10px #88888845;
+                animation: rainbow-bg 1.5s linear;
+                animation-iteration-count: infinite;
+            }
+
+            .menu-item {
+                background-color: #ccc;
+                color: black;
+                display: block;
+                padding: 12px;
+                text-decoration: none;
+                animation: rainbow 5s linear;
+                animation-iteration-count: infinite;
+                border: 1px black;
+                border-style: none none solid none;
+            }
+
+            .menu-item:last-child {
+                border-bottom: unset;
+            }
+        </style>
+
+        <div class="menu-container">
+            <div class="menu-item">First Menu</div>
+            <div class="menu-item">Menu 2</div>
+            <div class="menu-item">Menu 3</div>
+            <div class="menu-item">Menu 4</div>
+            <div class="menu-item">Menu 5</div>
+            <div class="menu-item">Last Menu</div>
+        </div>
+    </div>
+
+    <h2>Header</h2>
+    <h3>example</h3>
+    <img src="header.png">
+    <br>
+    <h3>playground</h3>
+    <div class="playground">
+        <style>
+            .header-container {
+                width: 75%;
+                margin: 10px 50px;
+                border: 1px solid black;
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                position: absolute;
+                align-items: center;
+            }
+
+            .header-content-left {
+                transition: transform .7s ease-in-out;
+            }
+
+            .header-content-left:hover {
+                transform: rotate(3600deg);
+            }
+
+            .header-content-right {
+                transition: transform .7s ease-in-out;
+            }
+
+            .header-content-right:hover {
+                transform: rotate(3600deg);
+            }
+
+
+            .material-symbols-outlined {
+                font-variation-settings:
+                    'FILL' 0,
+                    'wght' 400,
+                    'GRAD' 0,
+                    'opsz' 48
+            }
+        </style>
+
+        <div class="header-container">
+            <div class="header-content-left">
+                <span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+            </div>
+            <div class="header-content">Header</div>
+            <div class="header-content-right">
+                <span class="material-symbols-outlined">
+                    help
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <h2>Navigation Tab</h2>
+    <h3>example</h3>
+    <img src="navigation-tab.png">
+    <br>
+    <h3>playground</h3>
+    <div class="playground">
+        <style>
+            .navigation-container {
+                margin: 10px 50px;
+                border: 1px solid black;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .navigation-item {
+                text-align: center;
+                animation: rainbow 1.5s linear;
+                animation-iteration-count: infinite;
+            }
+
+            .navigation-item:hover {
+                animation: rainbow-bg 5s linear;
+                animation-iteration-count: infinite;
+            }
+        </style>
+
+        <div class="navigation-container">
+            <div class="navigation-item">
+                <div class="navigation-item-icon">
+                    <span class="material-symbols-outlined">
+                        schedule
+                    </span>
+                </div>
+                <div class="navigation-item-label">
+                    First Menu
+                </div>
+            </div>
+            <div class="navigation-item">
+                <div class="navigation-item-icon">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span>
+                </div>
+                <div class="navigation-item-label">
+                    Second Menu
+                </div>
+            </div>
+            <div class="navigation-item">
+                <div class="navigation-item-icon">
+                    <span class="material-symbols-outlined">
+                        build
+                    </span>
+                </div>
+                <div class="navigation-item-label">
+                    Third Menu
+                </div>
+            </div>
+            <div class="navigation-item">
+                <div class="navigation-item-icon">
+                    <span class="material-symbols-outlined">
+                        security
+                    </span>
+                </div>
+                <div class="navigation-item-label">
+                    Very long text menu
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Card</h2>
+    <h3>example</h3>
+    <img src="card.png">
+    <br>
+    <h3>playground</h3>
+    <div class="playground">
+        <style>
+            .card-list-container {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 5px;
+                gap: 0 35px;
+            }
+
+            .card-container {
+                width: 220px;
+                height: 400px;
+                border: 1px solid black;
+                transition: transform 1.5s ease-in-out;
+            }
+
+            .card-container:hover {
+                background-color: #939393;
+                transform: rotate(3600deg);
+            }
+
+            .card-content-image-section img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card-content-detail-section {
+                padding: 5px;
+            }
+
+            .product-price {
+                font-family: 'Courier New', Courier, monospace;
+                direction: rtl;
+                font-weight: bold;
+            }
+
+            .product-name {
+                font-weight: bold;
+            }
+        </style>
+
+        <div>
+            <div class="card-list-container">
+                <div class="card-container">
+                    <div class="card-content">
+                        <div class="card-content-image-section">
+                            <img src="./cat.jpg">
+                        </div>
+                        <div class="card-content-detail-section">
+                            <div class="product-name">
+                                Elite Obsidian
+                            </div>
+                            <div class="product-description">
+                                Awesome product from Mars made by hand of Ultraman
+                            </div>
+                            <div class="product-price">
+                                1,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-content">
+                        <div class="card-content-image-section">
+                            <img src="cat.jpg">
+                        </div>
+                        <div class="card-content-detail-section">
+                            <div class="product-name">
+                                Elite Obsidian
+                            </div>
+                            <div class="product-description">
+                                Awesome product from Mars made by hand of Ultraman
+                            </div>
+                            <div class="product-price">
+                                1,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-content">
+                        <div class="card-content-image-section">
+                            <img src="cat.jpg">
+                        </div>
+                        <div class="card-content-detail-section">
+                            <div class="product-name">
+                                Elite Obsidian
+                            </div>
+                            <div class="product-description">
+                                Awesome product from Mars made by hand of Ultraman
+                            </div>
+                            <div class="product-price">
+                                1,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-content">
+                        <div class="card-content-image-section">
+                            <img src="cat.jpg">
+                        </div>
+                        <div class="card-content-detail-section">
+                            <div class="product-name">
+                                Elite Obsidian
+                            </div>
+                            <div class="product-description">
+                                Awesome product from Mars made by hand of Ultraman
+                            </div>
+                            <div class="product-price">
+                                1,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-content">
+                        <div class="card-content-image-section">
+                            <img src="cat.jpg">
+                        </div>
+                        <div class="card-content-detail-section">
+                            <div class="product-name">
+                                Elite Obsidian
+                            </div>
+                            <div class="product-description">
+                                Awesome product from Mars made by hand of Ultraman
+                            </div>
+                            <div class="product-price">
+                                1,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-content">
+                        <div class="card-content-image-section">
+                            <img src="cat.jpg">
+                        </div>
+                        <div class="card-content-detail-section">
+                            <div class="product-name">
+                                Elite Obsidian
+                            </div>
+                            <div class="product-description">
+                                Awesome product from Mars made by hand of Ultraman
+                            </div>
+                            <div class="product-price">
+                                1,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <h2>Sidebar</h2>
+    <h3>example</h3>
+    <img src="sidebar.png">
+    <br>
+    <h3>playground</h3>
+    <div class="playground" style="height: 200px;">
+        <style>
+            .sidebar-container {
+                background-color: white;
+                position: absolute;
+                width: 35%;
+                border: 1px solid black;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                animation: rainbow-bg 1.5s linear;
+                animation-iteration-count: infinite;
+            }
+
+            .sidebar-profile-section {
+                border-bottom: 1px solid black;
+                padding: 5px;
+                font-weight: bold;
+                font-size: larger;
+            }
+
+            .sidebar-menu-section {
+                padding: 5px;
+                flex-grow: 1;
+            }
+
+            .sidebar-footer-section {
+                border-top: 1px solid black;
+                padding: 5px;
+            }
+        </style>
+
+        <div class="sidebar-container">
+            <div class="sidebar-profile-section">
+                <div>I'm Header</div>
+            </div>
+            <div class="sidebar-menu-section">
+                <div class="sidebar-menu-item"> Menu 1</div>
+                <div class="sidebar-menu-item"> Menu 2</div>
+                <div class="sidebar-menu-item"> Menu 3</div>
+            </div>
+            <div class="sidebar-footer-section">
+                <div>
+                    Logout
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+
+</html>
