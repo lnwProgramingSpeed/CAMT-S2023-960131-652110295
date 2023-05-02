@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cado</title>
+</head>
+<style>
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .playground {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid black;
+        border-radius: 10px;
+        width: 1000px;
+        height: 500px;
+        background-color: green;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .card-container {
+        position: relative;
+        background-color: white;
+        border: 3px solid;
+        border-radius: 10px;
+        width: 15%;
+        height: 50%;
+    }
+
+    .card-type {
+        display: flex;
+        flex-direction: row-reverse;
+        font-size: 35px;
+        margin-right: 10px;
+    }
+
+    .card-number {
+        position: absolute;
+        top: 45%;
+        width: 100%;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .random {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .random button {
+        width: 1000px;
+        height: 50px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="playground">
+            <div class="card-container">
+                <div class="card-type"></div>
+                <div class="card-number"></div>
+            </div>
+            <div class="card-container">
+                <div class="card-type"></div>
+                <div class="card-number"></div>
+            </div>
+            <div class="card-container">
+                <div class="card-type"></div>
+                <div class="card-number"></div>
+            </div>
+            <div class="card-container">
+                <div class="card-type"></div>
+                <div class="card-number"></div>
+            </div>
+        </div>
+        <div class="random">
+            <button onclick="addNewCard()">Add New Card</button>
+            <button onclick="generateNewCard()">Click to Random</button>
+        </div>
+    </div>
+
+    <script>
+        // card number and type
+        var CARD_TYPE = ['♣', '♦', '♥', '♠']
+        var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6', ' 7', '8', '9', '10', 'J', 'Q', 'K']
+
+        // random function
+        // max: number > 0
+        // return [0, max -1]
+        function random(max) {
+            return parseInt(Math.random() * max) % max
+        }
+
+        // Set a default every time the program run
+        generateNewCard();
+
+        function generateNewCard() {
+            // Loop for how many the card have
+            for (let i = 0; i < document.getElementsByClassName("card-type").length; i++) {
+
+                // cardTypeElement and cardNumberElement will get a class name "card-type" and "card-number"
+                // At position of i which is 0-3(1-4) as it loop by
+                var cardTypeElement = document.getElementsByClassName("card-type")[i];
+                var cardNumberElement = document.getElementsByClassName("card-number")[i];
+
+                // how to use random function
+                // Storge a random value in cardType and cardNumber
+                var cardType = CARD_TYPE[random(CARD_TYPE.length)];
+                var cardNumber = CARD_NUMBER[random(CARD_NUMBER.length)];
+
+                if (cardType === '♥' || cardType === '♦') {
+                    document.getElementsByClassName("card-type")[i].style.color = "red";
+                    document.getElementsByClassName("card-number")[i].style.color = "red";
+                    document.getElementsByClassName("card-container")[i].style.borderColor = "red";
+                } else {
+                    document.getElementsByClassName("card-type")[i].style.color = "";
+                    document.getElementsByClassName("card-number")[i].style.color = "";
+                    document.getElementsByClassName("card-container")[i].style.borderColor = "";
+                }
+
+                // Finally the value of cardType and cardNumber will be install in cardTypeElement and cardNumberElement
+                cardTypeElement.innerHTML = cardType;
+                cardNumberElement.innerHTML = cardNumber;
+            }
+        }
+
+        function addNewCard() {
+            var playgroundElement = document.querySelector('.playground');
+            var cardDisplayCount = document.querySelectorAll('.card-display').length;
+            var newCardDisplay = `
+                    <div class="card-container">
+                        <div class="card-type"></div>
+                        <div class="card-number"></div>
+                    </div>
+            `;
+            playgroundElement.insertAdjacentHTML('beforeend', newCardDisplay);
+        }
+
+    </script>
+</body>
+
+</html>
