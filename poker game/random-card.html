@@ -20,12 +20,14 @@
         display: flex;
         flex-wrap: wrap;
         border: 1px solid black;
+        padding: 35px;
         border-radius: 10px;
         width: 1000px;
         height: 500px;
         background-color: green;
         align-items: center;
         justify-content: space-evenly;
+        gap: 15px 35px;
     }
 
     .card-container {
@@ -35,6 +37,7 @@
         border-radius: 10px;
         width: 15%;
         height: 50%;
+
     }
 
     .card-type {
@@ -63,6 +66,94 @@
         width: 1000px;
         height: 50px;
     }
+
+    .cardControl {
+        position: relative;
+        display: flex;
+    }
+
+    .cardControl button {
+        width: 500px;
+        height: 50px;
+    }
+
+    .rainbow-warm {
+        animation: rainbow-warm 2.5s linear;
+        animation-iteration-count: infinite;
+    }
+
+    .rainbow-cool {
+        animation: rainbow-cool 2.5s linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes rainbow-warm {
+
+        0%,
+        100% {
+            color: rgb(255, 0, 0);
+            /* Red */
+        }
+
+        16% {
+            color: rgb(255, 127, 0);
+            /* Orange */
+        }
+
+        33% {
+            color: rgb(255, 255, 0);
+            /* Yellow */
+        }
+
+        50% {
+            color: rgb(255, 204, 0);
+            /* Gold */
+        }
+
+        66% {
+            color: rgb(255, 127, 0);
+            /* Orange */
+        }
+
+        83% {
+            color: rgb(255, 0, 0);
+            /* Red */
+        }
+    }
+
+    @keyframes rainbow-cool {
+
+        0%,
+        100% {
+            color: rgb(0, 0, 255);
+            /* Blue */
+        }
+
+        16% {
+            color: rgb(0, 128, 255);
+            /* Light Blue */
+        }
+
+        33% {
+            color: rgb(0, 255, 255);
+            /* Teal */
+        }
+
+        50% {
+            color: rgb(153, 255, 255);
+            /* Light Teal */
+        }
+
+        66% {
+            color: rgb(0, 128, 255);
+            /* Light Blue */
+        }
+
+        83% {
+            color: rgb(0, 0, 255);
+            /* Blue */
+        }
+    }
 </style>
 
 <body>
@@ -72,29 +163,20 @@
                 <div class="card-type"></div>
                 <div class="card-number"></div>
             </div>
-            <div class="card-container">
-                <div class="card-type"></div>
-                <div class="card-number"></div>
-            </div>
-            <div class="card-container">
-                <div class="card-type"></div>
-                <div class="card-number"></div>
-            </div>
-            <div class="card-container">
-                <div class="card-type"></div>
-                <div class="card-number"></div>
-            </div>
         </div>
         <div class="random">
-            <button onclick="addNewCard()">Add New Card</button>
             <button onclick="generateNewCard()">Click to Random</button>
+        </div>
+        <div class="cardControl">
+            <button onclick="addNewCard()">Add New Card</button>
+            <button onclick="removeCard()">Remove Card</button>
         </div>
     </div>
 
     <script>
         // card number and type
         var CARD_TYPE = ['♣', '♦', '♥', '♠']
-        var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6', ' 7', '8', '9', '10', 'J', 'Q', 'K']
+        var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', ' 7', '8', '9', '10', 'J', 'Q', 'K']
 
         // random function
         // max: number > 0
@@ -108,31 +190,41 @@
 
         function generateNewCard() {
             // Loop for how many the card have
-            for (let i = 0; i < document.getElementsByClassName("card-type").length; i++) {
+            for (let i = 0; i < document.getElementsByClassName("card-container").length; i++) {
 
                 // cardTypeElement and cardNumberElement will get a class name "card-type" and "card-number"
                 // At position of i which is 0-3(1-4) as it loop by
                 var cardTypeElement = document.getElementsByClassName("card-type")[i];
                 var cardNumberElement = document.getElementsByClassName("card-number")[i];
+                var cardContainerElement = document.getElementsByClassName("card-container")[i];
 
                 // how to use random function
                 // Storge a random value in cardType and cardNumber
                 var cardType = CARD_TYPE[random(CARD_TYPE.length)];
                 var cardNumber = CARD_NUMBER[random(CARD_NUMBER.length)];
 
-                if (cardType === '♥' || cardType === '♦') {
-                    document.getElementsByClassName("card-type")[i].style.color = "red";
-                    document.getElementsByClassName("card-number")[i].style.color = "red";
-                    document.getElementsByClassName("card-container")[i].style.borderColor = "red";
+                if (cardType === '♦' || cardType === '♥') {//[i] child of that class NOT that class
+                    cardTypeElement.classList.remove("rainbow-cool");
+                    cardNumberElement.classList.remove("rainbow-cool");
+                    cardContainerElement.classList.remove("rainbow-cool");
+
+                    cardTypeElement.classList.add("rainbow-warm");
+                    cardNumberElement.classList.add("rainbow-warm");
+                    cardContainerElement.classList.add("rainbow-warm");
                 } else {
-                    document.getElementsByClassName("card-type")[i].style.color = "";
-                    document.getElementsByClassName("card-number")[i].style.color = "";
-                    document.getElementsByClassName("card-container")[i].style.borderColor = "";
-                }
+                    cardTypeElement.classList.remove("rainbow-warm");
+                    cardNumberElement.classList.remove("rainbow-warm");
+                    cardContainerElement.classList.remove("rainbow-warm");
+
+                    cardTypeElement.classList.add("rainbow-cool");
+                    cardNumberElement.classList.add("rainbow-cool");
+                    cardContainerElement.classList.add("rainbow-cool");
+                }//debugger
 
                 // Finally the value of cardType and cardNumber will be install in cardTypeElement and cardNumberElement
                 cardTypeElement.innerHTML = cardType;
                 cardNumberElement.innerHTML = cardNumber;
+                //innerText innerHTML
             }
         }
 
@@ -146,6 +238,16 @@
                     </div>
             `;
             playgroundElement.insertAdjacentHTML('beforeend', newCardDisplay);
+            generateNewCard();
+        }
+
+        function removeCard() {
+            var playgroundElement = document.querySelector('.playground');//Select all child in .playground aka. card-container
+            var lastCardElement = playgroundElement.lastElementChild;//Select last child
+            if (lastCardElement) {//if there is a last child or to be easy to understand if there is still any card left
+                playgroundElement.removeChild(lastCardElement);//remove last child in card-container
+            }
+
         }
 
     </script>
