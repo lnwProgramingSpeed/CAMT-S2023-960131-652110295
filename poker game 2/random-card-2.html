@@ -208,37 +208,32 @@
     function storgeCard() {
         for (var i = 0; i < CARD_TYPE.length; i++) {
             for (var j = 0; j < CARD_NUMBER.length; j++) {
-                var isFaceDown = Math.random() < 0.5;//Math.random() generate 0 or 1 if <.5 is true, otherwise >.5 is false
                 var card = {
                     value: [
                         CARD_TYPE[i],
                         CARD_NUMBER[j]],
                     isFaceDown:
-                        isFaceDown
+                        true
                 };
                 cardList.push(card);
             }
         }
     }
-    storgeCard();
 
+    function shuffleArray(array) {
+        // Loop through the array backwards from the last element to the second element
+        for (let i = array.length - 1; i > 0; i--) {
+            // Generate a random index between 0 and i (inclusive)
+            const j = Math.floor(Math.random() * (i + 1));
 
-    function shuffle(array) {//stackoverflow
-        let currentIndex = array.length, randomIndex;
-
-        // While there remain elements to shuffle.
-        while (currentIndex != 0) {
-
-            // Pick a remaining element.
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-
-            // And swap it with the current element.
-            [array[currentIndex], array[randomIndex]] = [
-                array[randomIndex], array[currentIndex]];
+            // Swap the values at indices i and j using destructuring assignment
+            [array[i], array[j]] = [array[j], array[i]];
         }
+
+        // Return the shuffled array
         return array;
     }
+
 
     function htmlToElem(html) {
         let temp = document.createElement('template');
@@ -247,8 +242,10 @@
         return temp.content.firstChild;
     }
 
+    storgeCard();
+
     function renderCardList() {
-        shuffle(cardList);
+
         // TODO: define cardZoneElm here
         var cardZoneElm = document.getElementsByClassName('card-zone')[0];
         //clear all element in card-zone
@@ -258,15 +255,16 @@
             // if isFaceDown is true, create a card component with 'face-down' class
             var card = cardList[idx];//that certain card
 
+            card.isFaceDown = Math.random() < 0.5;//Math.random() generate 0 or 1 if <.5 is true, otherwise >.5 is false
+
             if (card.isFaceDown) {
                 cardElm = htmlToElem(
-                    '<div class="card"><div class="card-title">' + card.value[0] + '</div><div class="card-body">' + card.value[1] + '</div></div>'
+                    '<div class="card face-down"><div class= "card-title" ></div><div class="card-body">?</div></div >'
                 )
 
-                
             } else {
                 cardElm = htmlToElem(
-                    '<div class="card face-down"><div class= "card-title" ></div><div class="card-body">?</div></div >'
+                    '<div class="card"><div class="card-title">' + card.value[0] + '</div><div class="card-body">' + card.value[1] + '</div></div>'
                 )
             }
             cardZoneElm.append(cardElm);
@@ -275,36 +273,42 @@
             var cardNumberElement = document.getElementsByClassName("card-body")[idx];
             var cardContainerElement = document.getElementsByClassName("card")[idx];
 
-            if(card.isFaceDown){
+            if (card.isFaceDown) {
+
+                cardTypeElement.style.color = "black";
+                cardNumberElement.style.color = "antiquewhite";
+                cardContainerElement.style.borderColor = "antiquewhite";
+            } else {
+
                 if (card.value[0] === '♦' || card.value[0] === '♥') {
                     cardTypeElement.classList.add("rainbow-warm");
                     cardNumberElement.classList.add("rainbow-warm");
                     cardContainerElement.style.borderColor = "red";
-                    
+
                     cardTypeElement.classList.remove("rainbow-cool");
                     cardNumberElement.classList.remove("rainbow-cool");
-    
+
                 } else {
                     cardTypeElement.classList.add("rainbow-cool");
                     cardNumberElement.classList.add("rainbow-cool");
                     cardContainerElement.style.borderColor = "blue";
-    
+
                     cardTypeElement.classList.remove("rainbow-warm");
                     cardNumberElement.classList.remove("rainbow-warm");
-    
                 }
-            } else {
-                cardTypeElement.style.color = "black";
-                cardNumberElement.style.color = "antiquewhite";
-                cardContainerElement.style.borderColor = "antiquewhite";
             }
-        
+
         }
+    }
+
+    function onload(){
+        shuffleArray(cardList);
+        renderCardList();
     }
 
 </script>
 
-<body onload="renderCardList()">
+<body onload="onload()">
     <div class="board">
         <div class="board-content">
             <div class="card-zone">
@@ -330,7 +334,7 @@
             </div>
         </div>
         <div class="footer">
-            <button class="new-game-button" onclick="renderCardList()">New Game</button>
+            <button class="new-game-button" onclick="onload()">New Game</button>
         </div>
     </div>
 </body>
