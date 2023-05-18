@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>/* open crudcrud.com and then replace ID and resource name. */
+        // BEGIN: configuration zone
+        var CRUD_CURD_ID = "8223930f3ff944cfaf1ca89413137b38";
+        var CRUD_CURD_RESOURCE_NAME = "todo";
+        var CURD_CURD_API_ENDPOINT =
+            "https://crudcrud.com/api/" + CRUD_CURD_ID + "/" + CRUD_CURD_RESOURCE_NAME;
+        // END:configuration zone
+
+        // BEGIN: application variables zone
+        var APPLICATION_STATE = {
+            todoList: []
+        }
+        // END: application variables zone
+
+        // BEGIN: utility function zone
+        function htmlToElem(html) {
+            let temp = document.createElement("template");
+            html = html.trim(); // Never return a space text node as a result
+            temp.innerHTML = html;
+            return temp.content.firstChild;
+        }
+        // END: utility function zone
+
+        // BEGIN: API fetching zone
+        async function loadTodoList(afterLoadFunction) {
+            var headers = new Headers();
+            headers.append("Content-Type", "application/json");
+
+            var requestOptions = {
+                method: "GET",
+                headers: headers
+            };
+
+            await fetch(CURD_CURD_API_ENDPOINT, requestOptions).then(function (response) {
+                response.json().then(function (data) {
+                    afterLoadFunction(data);
+                });
+            });
+        }
+
+        function addNewTodoItem(value, afterAddFunction) {
+            var headers = new Headers();
+            headers.append("Content-Type", "application/json");
+
+            var requestOptions = {
+                method: "POST",
+                body: JSON.stringify({
+                    name: value
+                }),
+                headers: headers
+            };
+
+            fetch(CURD_CURD_API_ENDPOINT, requestOptions).then(function (response) {
+                response.json().then(function (data) {
+                    afterAddFunction(data);
+                });
+            });
+        }
+
+        function deleteToDoItem(todoItemId, afterDeleteFunction) {
+            var headers = new Headers();
+            headers.append("Content-Type", "application/json");
+
+            var requestOptions = {
+                method: "DELETE",
+                headers: headers
+            };
+
+            fetch(CURD_CURD_API_ENDPOINT + "/" + todoItemId, requestOptions).then(function (response) {
+                response.json().then(function (data) {
+                    afterDeleteFunction(data);
+                });
+            });
+            playSound();
+        }
+
+        // END: API fetching zone
+
+        // BEGIN: UI Control and logic zone
+        function bindEvents() {
+            var addButtonElm = document.getElementById("todo-add-button");
+            addButtonElm.addEventListener("click", function () {
+                var inputElm = document.getElementById("todo-input");
+                var todoValue = inputElm.value;
+                inputElm.value = "";
+                if (todoValue !== "") {
+                    addNewTodoItem(todoValue, function () {
+                        refreshTodoList()
+                    });
+                }
+            });
+        }
+
+        function renderTodoList() {
+            var todoListElm = document.getElementById("todo-list-container");
+            todoListElm.innerHTML = "";
+
+            for (var idx = 0; idx < APPLICATION_STATE.todoList.length; idx++) {
+                var todoItem = APPLICATION_STATE.todoList[idx];
+                var todoItemElm = htmlToElem(
+                    '<div class="todo-item">' +
+                    '<span>' + todoItem.name + '</span>' +
+                    '<button class="delete-button" data-id="' + todoItem._id + '">Delete</button>' +
+                    '</div>'
+
+                );
+                todoListElm.append(todoItemElm);
+            }
+
+            var deleteButtons = document.getElementsByClassName("delete-button");
+            for (var i = 0; i < deleteButtons.length; i++) {
+                deleteButtons[i].addEventListener("click", function (event) {
+                    var todoItemId = event.target.getAttribute("data-id");
+                    deleteToDoItem(todoItemId, function () {
+                        refreshTodoList();
+                    });
+                });
+            }
+        }
+
+        function refreshTodoList() {
+            loadTodoList(function (data) {
+                APPLICATION_STATE.todoList = data;
+                renderTodoList();
+            });
+        }
+
+        function playSound() {
+            var audio = new Audio('WutdaheeeeeeeeeeeeeeelOoohmaagaaaadNowaaayyaayyaaaaae-SoundEffects(HD).mp3');
+            audio.play();
+        }
+
+        window.onload = function () {
+            bindEvents();
+            refreshTodoList();
+        };
+
+        // END: UI Control and logic zone</script>
+    <div class="container">
+        <input type="text" id="todo-input" />
+        <button id="todo-add-button">add</button>
+        <div id="todo-list-container">
+        </div>
+    </div>
+</body>
+
+</html>
